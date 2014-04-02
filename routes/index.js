@@ -42,7 +42,11 @@ exports.open = function (req, res) {
     bufferOffset = 0,
     bufferLength = readBuffer.length,
     filePosition = 0;
-    fs.read(fd, readBuffer, bufferOffset, bufferLength, filePosition,
+    fs.read(fd, 
+      readBuffer, 
+      bufferOffset, 
+      bufferLength, 
+      filePosition,
       function read(err, readBytes) {
         var fileBody = readBuffer.slice(0, readBytes);
         var fileBody = fileBody.toString().split('<T>');
